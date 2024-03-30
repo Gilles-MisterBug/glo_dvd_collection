@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!{% endblock %}
+
+{% block body %}
+    <div class="container-fluid">
+        <h1>Liste des films</h1>
+
+        <div class="row">
+            <div class="col">
+                {{
+                    knp_pagination_filter(
+                        movies,
+                        {
+                        },
+                        {
+                            'placeholder' : 'Pour faire une recherche contenant la chaine, ajoutez le caractère \% avant et\/ou après',
+                            'alt' : 'Pour faire une recherche contenant la chaine, ajoutez le caractère \% avant et\/ou après',
+                        },
+                    )
+                }}
+            </div>
+{#            <div class="col">#}
+{#                {{#}
+{#                    knp_pagination_filter(#}
+{#                        movies,#}
+{#                        {#}
+{#                            'i.support' : 'Support',#}
+{#                            'i.title' : 'Titre',#}
+{#                        }#}
+{#                    )#}
+{#                }}#}
+{#            </div>#}
+        </div>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th style="min-width: 100px;" scope="col">Tmdb ID</th>
+                    <th style="min-width: 100px;" scope="col">{{ knp_pagination_sortable(movies, '#id', 'i.id') }}</th>
+                    <th style="min-width: 200px;" scope="col">{{ knp_pagination_sortable(movies, 'Support', 'i.support') }}</th>
+                    <th style="min-width: 200px;" scope="col">{{ knp_pagination_sortable(movies, 'Titre', 'i.title') }}</th>
+                    <th style="min-width: 200px;" scope="col">{{ knp_pagination_sortable(movies, 'Titre original', 'i.originalTitle') }}</th>
+                    <th scope="col">Synopsis</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for movie in movies %}
+                <tr>
+                    <td>{{ movie.tmdbId }}</td>
+                    <td>{{ movie.id }}</td>
+                    <td>{{ movie.support }}</td>
+                    <td>{{ movie.title }}</td>
+                    <td>{{ movie.originalTitle }}</td>
+                    <td>{{ movie.synopsis }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        {{ knp_pagination_render(movies) }}
+    </div>
+
+{% endblock %}

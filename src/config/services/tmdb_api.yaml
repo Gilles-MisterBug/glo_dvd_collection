@@ -1,0 +1,4 @@
+parameters:
+    tmdb_api:
+        read_token: '%env(resolve:TMDB_READ_TOKEN)%'
+        base_url: 'https://api.themoviedb.org/3/'

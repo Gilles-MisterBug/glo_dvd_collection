@@ -1,0 +1,25 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css");
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+
+$bg-color: #ffffff;
+
+body {
+    background-color: $bg-color;
+
+    nav {
+        .nav-icon {
+            background-color: #ffffff;
+            display: inline-block;
+            width: 45px;
+            height: 45px;
+            text-align: center;
+            vertical-align: super;
+            border-radius: 50%;
+            margin-right: 20px;
+
+            img {
+                vertical-align: -webkit-baseline-middle;
+            }
+        }
+    }
+}
