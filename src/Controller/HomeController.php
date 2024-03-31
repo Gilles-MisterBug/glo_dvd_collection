@@ -24,17 +24,4 @@ class HomeController extends AbstractController
         ]);
     }
 
-    #[Route('/import/movies', name: 'app_movies')]
-    public function movies(ImportMovieRepository $importMovieRepository, Request $request): Response
-    {
-        $page = $request->query->getInt('page', 1);
-        $limit = 5;
-
-        $movies = $importMovieRepository->paginator($page, $limit);
-
-
-        return $this->render('home/movies.html.twig', [
-            'movies' => $movies,
-        ]);
-    }
 }
